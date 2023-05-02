@@ -1,0 +1,14 @@
+! fonts config !
+Xft.dpi: 96 
+Xft.antialias:	1
+Xft.hinting:	0
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba: grayscale	
+Xft.lcdfilter:	lcddefault
+
+
+XTerm.vt100.background: black
+XTerm.vt100.foreground: grey
+xterm*faceName: Monospace
+xterm*faceSize: 12
