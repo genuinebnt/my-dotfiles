@@ -3,6 +3,8 @@ import os
 from libqtile.command import lazy
 from libqtile.config import EzClick, EzDrag, EzKey
 
+from lib.custom_functions import *
+
 HOME = os.path.expanduser("~")
 
 # Default applications
@@ -41,13 +43,15 @@ window_navigation = [
 
 window_displacement = [
     # Shift focus -> other window(s) in stack
-    EzKey("M-<Tab>", lazy.layout.next()),
+    # EzKey("M-<Tab>", lazy.layout.next()),
     EzKey("S-<Tab>", lazy.layout.previous()),
     EzKey("M-S-<Return>", lazy.layout.swap_main()),
     EzKey("M-S-h", lazy.layout.swap_left(), lazy.layout.shuffle_left()),
     EzKey("M-S-j", lazy.layout.swap_down(), lazy.layout.shuffle_down()),
     EzKey("M-S-k", lazy.layout.swap_up(), lazy.layout.shuffle_up()),
     EzKey("M-S-l", lazy.layout.swap_right(), lazy.layout.shuffle_right()),
+    EzKey("M-<Tab>", lazy.screen.next_group(skip_empty=True)),
+    EzKey("A-<Tab>", lazy.screen.toggle_group()),
 ]
 
 window_dimension = [

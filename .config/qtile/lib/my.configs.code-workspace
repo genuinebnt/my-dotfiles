@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../alacritty"
+		},
+		{
+			"path": "../../dunst"
+		},
+		{
+			"path": "../../kitty"
+		},
+		{
+			"path": "../../lvim"
+		},
+		{
+			"path": "../../neofetch"
+		},
+		{
+			"path": "../../ranger"
+		},
+		{
+			"path": "../../rofi"
+		},
+		{
+			"path": "../../scripts"
+		},
+		{
+			"path": "../../../.mpd"
+		},
+		{
+			"path": "../../../.ncmpcpp"
+		}
+	],
+	"settings": {}
+}

@@ -47,14 +47,14 @@ groupbox = [
 windowname = [
     widget.WindowName,
     {
-        "background": colors[2],
+        # "background": colors[2],
         "center_aligned": True,
         "font": fontinfo["font"],
         "fontsize": fontinfo["fontsize"],
         "format": "{name}",
         "max_chars": 35,
         "padding": 3,
-        "opacity": 0.0
+        "opacity": 0.7
     },
 ]
 
@@ -127,6 +127,7 @@ mem = [
     widget.Memory,
     {
         **fontinfo,
+        "background": colors[5],
         "format": "\ue949 {MemUsed:.2f}/{MemTotal:.2f}{mm}",
         "measure_mem": "G",
         "update_interval": 1.0,
@@ -137,9 +138,11 @@ mpris = [
     widget.Mpris2,
     {
         **fontinfo,
-        "foreground": palette[1],
-        "background": palette[9],
-        "max_chars": 40,
+        # "foreground": colors[8],
+        # "background": colors[6],
+        "scroll": 1,
+        "scroll_chars": 10,
+        "width": 250,
         "paused_text": "\uf8e4 {track}",
         "playing_text": "\uf90b {track}",
     },
@@ -149,8 +152,8 @@ batt = [
     widget.Battery,
     {
         **fontinfo,
-        "background": colors[5],
-        "foreground": colors[8],
+        "background": colors[8],
+        "foreground": colors[0],
         "charge_char": "\ue63c ",
         "discharge_char": "\ue3e6 ",
         "empty_char": "\uf244 ",
@@ -182,7 +185,7 @@ wlan = [
     widget.Wlan,
     {
         **fontinfo,
-        "background": colors[6],
+        "background": colors[1],
         "foreground": colors[8],
         "format": "{essid}",
     }
@@ -194,7 +197,7 @@ mpd = [
         **fontinfo,
         "update_interval": 1,
         "idle_message": "No songs playing",
-        "max_chars": 30,
+        "max_chars": 15,
         "max_lines": 1,
         "play_states": {
             'play': '▶',
@@ -202,9 +205,9 @@ mpd = [
             'stop': '◾',
         },
         "format": "{play_states} {artist} - {title}",
-        "scroll_chars": 1,
-        "background" : colors[7],
-        "foreground" : colors[2],
+        "scroll_chars": 10,
+        "background": colors[7],
+        "foreground": colors[2],
     }
 ]
 
@@ -215,6 +218,19 @@ mpd = [
 #     }
 # ]
 
+pomodoro = [
+    widget.Pomodoro,
+    {
+        **fontinfo,
+        "background": colors[8],
+        "foreground": colors[1],
+        "color_active": colors[1],
+        "color_inactive": colors[1],
+        "color_break": colors[1],
+
+    }
+]
+
 
 def widgetlist():
     return [
@@ -222,9 +238,10 @@ def widgetlist():
         logo,
         groupbox,
         layout,
+        pomodoro,
         windowname,
-        mpd,
-        mpris,
+        # mpd,
+        # mpris,
         cpu,
         net,
         wlan,

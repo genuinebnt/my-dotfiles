@@ -3,7 +3,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom mpd xfce4-power-manager pulseaudio mpd nm-applet)
+_ps=(picom mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -36,6 +36,9 @@ nm-applet &
 
 #pulseaudio i think
 start-pulseaudio-x11
+
+#mpris
+dbus-launch &
 
 # Fix Java problems
 wmname "LG3D"

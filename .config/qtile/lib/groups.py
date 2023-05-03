@@ -6,6 +6,10 @@ from libqtile import bar, layout, widget
 from libqtile.command import lazy
 from libqtile.config import DropDown, EzClick, EzKey, Group, Match, ScratchPad
 
+from lib.pywall import load_colors, colors, cache
+
+load_colors(cache)
+
 # Requires CJK-font (using: Sarasa Gothic)
 groups = [
     Group("1", label="一"),
@@ -30,9 +34,9 @@ for i in groups:
     )
 
 borderline = dict(
-    border_focus=palette[8],
-    border_normal=palette[1],
-    border_width=2,
+    border_focus=colors[8],
+    border_normal=colors[1],
+    border_width=4,
     margin=10,
 )
 
@@ -99,7 +103,8 @@ groups.append(
                 match=Match(wm_class="element"),
                 **next_maximum,
             ),
-            DropDown("Galaxy Buds Manager", "GalaxyBudsClient", **next_maximum),
+            DropDown("Galaxy Buds Manager",
+                     "GalaxyBudsClient", **next_maximum),
             DropDown(
                 "Neovide",
                 "neovide --multigrid --frame none",
@@ -133,3 +138,5 @@ keys.extend(
         EzKey("M-A-v", lazy.group["SPD"].dropdown_toggle("Volume Control")),
     ]
 )
+
+
