@@ -176,6 +176,7 @@ alias cat='bat'
 alias piconf='lvim ~/.config/picom.conf'
 alias dotconfig='/usr/bin/git --git-dir=/home/genuine/.cfg/ --work-tree=/home/genuine'
 alias qtilereload='qtile cmd-obj -o cmd -f reload_config'
+alias qtilelogs='tail -n 50 ~/.local/share/qtile/qtile.log | bat'
 
 # defaults
 export EDITOR='/home/genuine/.local/bin/lvim'

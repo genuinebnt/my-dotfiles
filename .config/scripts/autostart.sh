@@ -3,7 +3,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit)
+_ps=(mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -23,13 +23,17 @@ xfce4-power-manager &
 start-pulseaudio-x11 &
 
 # Lauch compositor
-$HOME/.config/scripts/picom.sh &
+if [[ ! `pidof picom` ]]; then
+  $HOME/.config/scripts/picom.sh &
+fi
 
 # Start mpd
 # exec mpd &
 
 # restore wallpaper
-wal -R
+if [[ ! `pidof wal` ]]; then
+  wal -R
+fi
 
 #nm-applet
 nm-applet &

@@ -2,6 +2,7 @@ import os
 
 from libqtile.command import lazy
 from libqtile.config import EzClick, EzDrag, EzKey
+from libqtile.log_utils import logger
 
 from lib.custom_functions import *
 
@@ -12,6 +13,7 @@ myTerm = "kitty"
 myBrowser = "google-chrome-stable"
 
 SCRIPTS = os.path.expanduser("~/.config/scripts")
+
 
 EzKey.modifier_keys = {
     "M": "mod4",
@@ -82,6 +84,11 @@ rofi_spawns = [
     EzKey("M-z", lazy.spawn(f"{SCRIPTS}/rofi_scripts.sh")),
 ]
 
+custom_functions = [
+    EzKey("A-<Insert>", lazy.spawn(
+        f"{SCRIPTS}/wal.sh")),
+]
+
 application_spawns = [
     EzKey("M-<Return>", lazy.spawn(myTerm)),
     EzKey("M-A-f", lazy.spawn(myBrowser)),
@@ -132,4 +139,5 @@ keys = [
     *scrcapy,
     *brightnessctl,
     *quick_launch,
+    *custom_functions,
 ]
