@@ -175,6 +175,7 @@ alias rgi='rg --ignore-case'
 alias cat='bat'
 alias piconf='lvim ~/.config/picom.conf'
 alias dotconfig='/usr/bin/git --git-dir=/home/genuine/.cfg/ --work-tree=/home/genuine'
+alias qtilereload='qtile cmd-obj -o cmd -f reload_config'
 
 # defaults
 export EDITOR='/home/genuine/.local/bin/lvim'

@@ -5,7 +5,7 @@ prompt="rofi -dmenu -i -theme ~/.config/rofi/config_qtile.rasi"
 # variables
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`cat /proc/sys/kernel/hostname`
-dwm_pid="$(pidof dwm)"
+qtile_pid="$(pidof qtile)"
 
 # options
 shutdown=' Shutdown'
@@ -43,7 +43,6 @@ execute()
 			systemctl suspend
 		elif [[ $1 == 'logout' ]]; then
       if [[ $wm == 'qtile' ]]; then
-        # kill -TERM dwmpid $dwm_pid
         pkill -KILL -u $USER # this will kill all user sessions including ssh and tty. keep in mind 
       elif [[ $wm == 'awesome' ]]; then
         awesome-client 'awesome.quit()'

@@ -78,7 +78,8 @@ qtilectl = [
 
 rofi_spawns = [
     EzKey("A-<Return>", lazy.spawn(f"{SCRIPTS}/rofi_run")),
-    EzKey("M-x", lazy.spawn(f"{SCRIPTS}/powermenu"))
+    EzKey("M-x", lazy.spawn(f"{SCRIPTS}/powermenu")),
+    EzKey("M-z", lazy.spawn(f"{SCRIPTS}/rofi_scripts.sh")),
 ]
 
 application_spawns = [
