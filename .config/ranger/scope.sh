@@ -125,6 +125,10 @@ handle_image() {
                       -jpeg -tiffcompression jpeg \
                       -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
                  && exit 6 || exit 1;;
+
+        # Resolution
+        resolution) echo "Resolution: "; identify -format "%[fx:w]x%[fx:h]" -- "${FILE_PATH}" ;;
+
     esac
 }
 

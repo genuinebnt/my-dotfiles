@@ -8,8 +8,10 @@ host=`cat /proc/sys/kernel/hostname`
 
 blur="Blur"
 transparency="Transparency"
+remove_wall="Delete current wallpaper"
+save_wall="Save current wallpaper"
 
-option="$blur\n$transparency"
+option="$save_wall\n$remove_wall\n$blur\n$transparency"
 
 show_options()
 {
@@ -25,4 +27,9 @@ case $select in
     $transparency)
         $HOME/.config/scripts/transparency.sh
         ;;
+    $remove_wall)
+        cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} rm -f "{}"
+        ;;
+    $save_wall)
+        cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} cp "{}" $HOME/.config/fav_walls/
 esac

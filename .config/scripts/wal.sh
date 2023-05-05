@@ -1,3 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 
-wal -i "`python3 ~/.config/qtile/lib/utils/gen_wall.py`" && qtile cmd-obj -o cmd -f reload_config 
+WALL="/mnt/Files/Important Files/Wallpapers/2020-6-10"
+
+wal -i "$WALL" && qtile cmd-obj -o cmd -f reload_config && echo $wall >> ~/.config/wall.txt

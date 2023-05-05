@@ -1,4 +1,4 @@
-@import "~/.cache/wal/colors-rofi-light"
+@import "~/.cache/wal/colors-rofi-dark"
 
 * {
   lines: 3;
@@ -28,4 +28,8 @@ configuration {
   columns: 3;
   width: 30;
   font: "SF Pro Display 12";
+}
+
+element-text {
+ text-color: #FFFFFF;
 }
