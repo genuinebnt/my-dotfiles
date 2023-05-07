@@ -153,7 +153,7 @@ batt = [
     {
         **fontinfo,
         "background": colors[8],
-        "foreground": colors[0],
+        "foreground": colors[1],
         "charge_char": "\ue63c ",
         "discharge_char": "\ue3e6 ",
         "empty_char": "\uf244 ",

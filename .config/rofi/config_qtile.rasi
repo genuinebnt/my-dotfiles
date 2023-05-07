@@ -7,6 +7,7 @@
   spacing: 5;
 }
 
+
 window {
     border:                  		0px;
     width:                          800px;
@@ -33,3 +34,5 @@ configuration {
 element-text {
  text-color: #FFFFFF;
 }
+
+
