@@ -3,7 +3,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit)
+_ps=(mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit pipewire piewire-pulse pipewire-media-session)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -20,7 +20,12 @@ xsetroot -cursor_name left_ptr
 xfce4-power-manager &
 
 #start pulseaudio
-start-pulseaudio-x11 &
+# start-pulseaudio-x11 &
+
+#start pipewire
+pipewire &
+piewire-pulse &
+pipewire-media-session &
 
 # Lauch compositor
 if [[ ! `pidof picom` ]]; then
@@ -37,9 +42,6 @@ fi
 
 #nm-applet
 nm-applet &
-
-#pulseaudio i think
-start-pulseaudio-x11
 
 #mpris
 dbus-launch &

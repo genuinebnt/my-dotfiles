@@ -6,12 +6,13 @@ prompt="rofi -dmenu -i -theme ~/.config/rofi/config_qtile.rasi"
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`cat /proc/sys/kernel/hostname`
 
-blur="Blur"
-transparency="Transparency"
+blur="Toggle Blur"
+transparency="Toggle transparency"
 remove_wall="Delete current wallpaper"
 save_wall="Save current wallpaper"
+preview_set="Set wallpaper"
 
-option="$save_wall\n$remove_wall\n$blur\n$transparency"
+option="$save_wall\n$remove_wall\n$preview_set\n$blur\n$transparency"
 
 show_options()
 {
@@ -31,5 +32,9 @@ case $select in
         cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} rm -f "{}"
         ;;
     $save_wall)
-        cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} cp "{}" $HOME/.config/fav_walls/
+        cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} cp -n "{}" $HOME/.config/fav_walls/
+        ;;
+    $preview_set)
+        $HOME/.config/scripts/rofi_wallpaper.sh
+        ;;
 esac
