@@ -85,9 +85,10 @@ rofi_spawns = [
 ]
 
 custom_functions = [
-    EzKey("A-<Insert>", lazy.spawn(
+    EzKey("A-8", lazy.spawn(
         f"{SCRIPTS}/wal.sh")),
-    EzKey("A-<Home>", lazy.spawn(f"{SCRIPTS}/wallhaven.sh"))
+    EzKey("A-9", lazy.spawn(f"{SCRIPTS}/wallhaven.sh")),
+    EzKey("A-0", lazy.spawn(f"{SCRIPTS}/fav_wal.sh"))
 ]
 
 application_spawns = [

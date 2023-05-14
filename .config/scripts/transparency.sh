@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-enable="\"50:class_g = 'kitty'\", # kitty transparency"
+enable="\"80:class_g = 'kitty'\", # kitty transparency"
 disable="\"100:class_g = 'kitty'\", # kitty transparency"
 file_path="$HOME/.config/picom.conf"
 

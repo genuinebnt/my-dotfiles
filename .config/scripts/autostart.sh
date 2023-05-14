@@ -3,7 +3,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(mpd xfce4-power-manager pulseaudio mpd nm-applet, xfce-polkit pipewire piewire-pulse pipewire-media-session)
+_ps=(mpd pulseaudio mpd)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -14,18 +14,30 @@ done
 xsetroot -cursor_name left_ptr
 
 # Polkit agent
-/usr/lib/xfce-polkit/xfce-polkit &
+if [[ ! `pidof xfce-polkit` ]]; then
+  /usr/lib/xfce-polkit/xfce-polkit &
+fi
 
 # Enable power management
-xfce4-power-manager &
+if [[ ! `pidof xfce4-power-manager` ]]; then
+  xfce4-power-manager  &
+fi
 
 #start pulseaudio
 # start-pulseaudio-x11 &
 
 #start pipewire
-pipewire &
-piewire-pulse &
-pipewire-media-session &
+if [[ ! `pidof pipewire` ]]; then
+  pipewire &
+fi
+
+if [[ ! `pidof piewire-pulse` ]]; then
+  piewire-pulse &
+fi
+
+if [[ ! `pidof pipewire-media-session` ]]; then
+  pipewire-media-session &
+fi
 
 # Lauch compositor
 if [[ ! `pidof picom` ]]; then
@@ -36,15 +48,17 @@ fi
 # exec mpd &
 
 # restore wallpaper
-if [[ ! `pidof wal` ]]; then
-  wal -R
-fi
+wal -R
 
 #nm-applet
-nm-applet &
+if [[ ! `pidof nm-applet` ]]; then
+  nm-applet &
+fi
 
 #mpris
-dbus-launch &
+if [[ ! `pidof dbus-launch` ]]; then
+  dbus-launch &
+fi
 
 # Fix Java problems
 wmname "LG3D"

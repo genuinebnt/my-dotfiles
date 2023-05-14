@@ -9,10 +9,11 @@ host=`cat /proc/sys/kernel/hostname`
 blur="Toggle Blur"
 transparency="Toggle transparency"
 remove_wall="Delete current wallpaper"
-save_wall="Save current wallpaper"
+save_wall="Save current wallpaper to favorites"
 preview_set="Set wallpaper"
+save_wall_2="Save current wallpaper to other favorites"
 
-option="$save_wall\n$remove_wall\n$preview_set\n$blur\n$transparency"
+option="$save_wall\n$save_wall_2\n$remove_wall\n$preview_set\n$blur\n$transparency"
 
 show_options()
 {
@@ -36,5 +37,8 @@ case $select in
         ;;
     $preview_set)
         $HOME/.config/scripts/rofi_wallpaper.sh
+        ;;
+    $save_wall_2)
+        cat $HOME/.cache/wal/wal | tail -n 1 | tee >(xargs -I {} notify-send "{}") | xargs -I {} cp -n "{}" $HOME/.config/other_walls/
         ;;
 esac

@@ -4,14 +4,6 @@ WALLPAPERS_DIR="$HOME/.config/fav_walls"
 COLLECTION_DIR="/mnt/Files/Important Files/Wallpapers/2020-6-10"
 WALLHAVEN_DIR="$HOME/.config/wallhaven_pics"
 
-build_theme() {
-    rows=$1
-    cols=$2
-    icon_size=$3
-
-    echo "element{orientation:vertical;}element-text{horizontal-align:0.5;}element-icon{size:$icon_size.0000em;}listview{lines:$rows;columns:$cols;}"
-}
-
 # Define three modes for three directories
 mode1="Favorite Wallpapers:$WALLPAPERS_DIR"
 mode2="Wallpaper Collection:$COLLECTION_DIR"
@@ -29,17 +21,17 @@ ROFI_CMD="rofi -dmenu -i -show-icons -theme wallsetter"
 # Get the options for the selected mode
 if [[ $selected_mode == $mode1 ]]; then
     DIR_PATH="$WALLPAPERS_DIR" && 
-    choice=$(ls --escape "$WALLPAPERS_DIR" | \
+    choice=$(ls --escape "$DIR_PATH" | \
         while read A; do echo -en "$A\x00icon\x1f$DIR_PATH/$A\n"; done | \
         $ROFI_CMD -p "Favorite Wallpaper")
 elif [[ $selected_mode == $mode2 ]]; then
     DIR_PATH="$COLLECTION_DIR" && 
-    choice=$(ls --escape "$COLLECTION_DIR" | \
+    choice=$(ls --escape "$DIR_PATH" | \
         while read A; do echo -en "$A\x00icon\x1f$DIR_PATH/$A\n"; done | \
         $ROFI_CMD -p "Wallpaper Collection")
 elif [[ $selected_mode == $mode3 ]]; then
     DIR_PATH="$WALLHAVEN_DIR" && 
-    choice=$(ls --escape "$WALLHAVEN_DIR" | \
+    choice=$(ls --escape "$DIR_PATH" | \
         while read A; do echo -en "$A\x00icon\x1f$DIR_PATH/$A\n"; done | \
         $ROFI_CMD -p "Wallhaven pics")
 else

@@ -14,7 +14,7 @@ def main():
     api_key = config.get("API_KEY")
 
     r = requests.get(
-        f"https://wallhaven.cc/api/v1/search?q=id:1&categories=010&purity=101&atleast=1920x1080&ratios=landscape&sorting=random&order=desc&ai_art_filter=1&apikey={api_key}"
+        f"https://wallhaven.cc/api/v1/search?q=anime+sexy&categories=010&purity=111&atleast=1920x1080&sorting=random&order=desc&ratios=landscape&ai_art_filter=1&apikey={api_key}"
     )
 
     if r.status_code == 200:
