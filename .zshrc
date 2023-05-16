@@ -79,6 +79,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   sudo
+  zoxide
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -178,6 +179,11 @@ alias dotconfig='/usr/bin/git --git-dir=/home/genuine/.cfg/ --work-tree=/home/ge
 alias qtilereload='qtile cmd-obj -o cmd -f reload_config'
 alias qtilelogs='tail -n 50 ~/.local/share/qtile/qtile.log | bat'
 
+wal-tile() {
+    wal -n -i "$@"
+    feh --bg-tile --scale-down "$(< "${HOME}/.cache/wal/wal")"
+}
+
 # defaults
 export EDITOR='/home/genuine/.local/bin/lvim'
 export BROWSER='/usr/bin/google-chrome-stable'
@@ -187,3 +193,6 @@ export PATH="$HOME/.bin/:$PATH"
 
 export CC="/usr/bin/clang"
 export CXX="/usr/bin/clang++" 
+
+source ~/.cache/wal/colors-tty.sh
+

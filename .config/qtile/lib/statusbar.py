@@ -231,6 +231,15 @@ pomodoro = [
     }
 ]
 
+bluetooth = [
+    widget.Bluetooth,
+    {
+        **fontinfo,
+        "background": colors[1],
+        "foreground": colors[3],
+        
+    }
+]
 
 def widgetlist():
     return [
@@ -242,6 +251,7 @@ def widgetlist():
         windowname,
         # mpd,
         # mpris,
+        #bluetooth,
         cpu,
         net,
         wlan,
